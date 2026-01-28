@@ -1,42 +1,52 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<BaseLayout title="Terms of Service">
+<BaseLayout title={t('footer.terms')}>
 	<main class="container" style="padding: 100px 0;">
-		<h1>Terms of Service</h1>
+		<h1>{t('footer.terms')}</h1>
 		<div class="legal-text">
-			<p>Last updated: January 28, 2026</p>
+			<p>Effective Date: January 28, 2026</p>
 
 			<h2>1. Acceptance of Terms</h2>
-			<p>By downloading or using Aion, you agree to be bound by these Terms of Service. If you do not agree, please do not use the application.</p>
+			<p>By accessing, downloading, or using Aion (the "Application"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you may not use the Application. Aion is a product of ProcessZero Team.</p>
 
-			<h2>2. License</h2>
-			<p>We grant you a personal, non-exclusive, non-transferable license to use Aion on your macOS devices. Aion Pro is a one-time purchase that unlocks additional features for your lifetime use.</p>
+			<h2>2. License Grant</h2>
+			<p>We grant you a revocable, non-exclusive, non-transferable, limited license to download, install and use the Application strictly in accordance with these Terms. The Standard/Lite version is provided for free, while the Professional version requires a one-time purchase.</p>
 
-			<h2>3. Usage Restrictions</h2>
-			<p>You may not:
+			<h2>3. Professional License & Payments</h2>
+			<p>Aion Professional is available as a one-time payment. This license is tied to your personal account and can be used on a reasonable number of macOS devices owned by you. Payments are processed by Paddle, our Merchant of Record. By purchasing, you agree to Paddle's terms and conditions.</p>
+
+			<h2>4. User Responsibilities</h2>
+			<p>You agree not to use the Application for any purpose that is prohibited by these Terms. You are responsible for all of your activity in connection with the Application. You shall not:
 				<ul>
-					<li>Modify, reverse engineer, or decompile the application.</li>
-					<li>Use the application for any illegal activities.</li>
-					<li>Redistribute or sell the application without our permission.</li>
+					<li>Decompile, reverse engineer, or attempt to derive the source code of the Application.</li>
+					<li>Distribution of the Application on unauthorized platforms.</li>
+					<li>Use the Application in any manner that could damage, disable, or overburden our infrastructure (if applicable).</li>
 				</ul>
 			</p>
 
-			<h2>4. Disclaimer of Warranty</h2>
-			<p>Aion is provided "as is" without any warranties. While we strive for perfection, we are not responsible for any data loss or system instability caused by the use of the application.</p>
+			<h2>5. Intellectual Property</h2>
+			<p>The Application, including all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics are owned by ProcessZero Team and are protected by copyright and trademark laws.</p>
 
-			<h2>5. Limitation of Liability</h2>
-			<p>In no event shall ProcessZero Team be liable for any damages arising out of the use or inability to use the application.</p>
+			<h2>6. Limitation of Liability</h2>
+			<p>To the maximum extent permitted by law, ProcessZero Team shall not be liable for any indirect, incidental, special, or consequential damages resulting from the use or inability to use the Application, including but not limited to data loss or system instability.</p>
 
-			<h2>6. Refund Policy</h2>
-			<p>We offer a 14-day money-back guarantee for Aion Pro. If you are not satisfied, please contact us via support@7caifei.com to request a refund through Paddle.</p>
+			<h2>7. Refund Policy</h2>
+			<p>We provide a 14-day "No Questions Asked" refund policy for the Professional version. Refund requests must be submitted via email to support@7caifei.com and will be processed through Paddle.</p>
 
-			<h2>7. Governing Law</h2>
-			<p>These terms are governed by the laws of your jurisdiction.</p>
+			<h2>8. Governing Law</h2>
+			<p>These Terms shall be governed and construed in accordance with the laws of the jurisdiction where ProcessZero Team is registered, without regard to its conflict of law provisions.</p>
 
-			<h2>8. Contact</h2>
-			<p>Questions? Contact us at support@7caifei.com</p>
+			<h2>9. Changes to Terms</h2>
+			<p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. We will provide notice for any material changes by updating the date at the top of this page.</p>
+
+			<h2>10. Contact Information</h2>
+			<p>If you have any questions about these Terms, please contact us at support@7caifei.com.</p>
 		</div>
 	</main>
 </BaseLayout>
