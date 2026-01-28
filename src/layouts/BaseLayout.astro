@@ -1,16 +1,19 @@
 ---
 import '../styles/global.css';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 interface Props {
 	title: string;
 	description?: string;
 }
 
-const { title, description = "Aion - Zero Friction, Zero Distraction. The ultimate productivity utility for macOS." } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { title, description = t('hero.subtitle') } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
@@ -22,14 +25,21 @@ const { title, description = "Aion - Zero Friction, Zero Distraction. The ultima
 	<body>
 		<header>
 			<div class="container" style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
-				<a href="/" class="logo">
+				<a href={lang === 'en' ? '/' : `/${lang}/`} class="logo">
 					<img src="/apple-touch-icon.png" alt="Aion Logo" onerror="this.src='/favicon.svg'" />
 					<span>Aion</span>
 				</a>
 				<nav>
-					<a href="/#features">Features</a>
-					<a href="/#pricing">Pricing</a>
-					<a href="mailto:support@7caifei.com">Support</a>
+					<a href="#features">{t('nav.features')}</a>
+					<a href="#pricing">{t('nav.pricing')}</a>
+					<div class="lang-selector">
+						<select onchange="window.location.href = this.value" style="background: transparent; color: var(--text-secondary); border: 1px solid var(--border); border-radius: 4px; padding: 2px 4px; font-size: 0.8rem; cursor: pointer;">
+							<option value="/" selected={lang === 'en'}>English</option>
+							<option value="/zh-hans/" selected={lang === 'zh-hans'}>简体中文</option>
+							<option value="/zh-hant/" selected={lang === 'zh-hant'}>繁體中文</option>
+						</select>
+					</div>
+					<a href="mailto:support@7caifei.com">{t('nav.support')}</a>
 				</nav>
 			</div>
 		</header>
@@ -40,16 +50,23 @@ const { title, description = "Aion - Zero Friction, Zero Distraction. The ultima
 			<div class="container">
 				<div class="footer-content">
 					<div>
-						<p>&copy; 2026 ProcessZero Team. All rights reserved.</p>
+						<p>&copy; 2026 ProcessZero Team. {t('footer.rights')}</p>
 						<p style="margin-top: 8px;">Aion: Zero Friction, Zero Distraction.</p>
 					</div>
 					<div class="footer-links">
-						<a href="/privacy">Privacy Policy</a>
-						<a href="/terms">Terms of Service</a>
-						<a href="mailto:support@7caifei.com">Contact Us</a>
+						<a href="/privacy">{t('footer.privacy')}</a>
+						<a href="/terms">{t('footer.terms')}</a>
+						<a href="mailto:support@7caifei.com">{t('footer.contact')}</a>
 					</div>
 				</div>
 			</div>
 		</footer>
 	</body>
 </html>
+
+<style>
+	.lang-selector select:hover {
+		color: var(--text);
+		border-color: var(--text-secondary);
+	}
+</style>
