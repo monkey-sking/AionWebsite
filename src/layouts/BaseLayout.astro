@@ -32,14 +32,15 @@ const { title, description = t('hero.subtitle') } = Astro.props;
 				<nav>
 					<a href="#features">{t('nav.features')}</a>
 					<a href="#pricing">{t('nav.pricing')}</a>
-					<div class="lang-selector">
-						<select onchange="window.location.href = this.value" style="background: transparent; color: var(--text-secondary); border: 1px solid var(--border); border-radius: 4px; padding: 2px 4px; font-size: 0.8rem; cursor: pointer;">
+					<div class="lang-selector-wrapper">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+						<select onchange="window.location.href = this.value">
 							<option value="/" selected={lang === 'en'}>English</option>
 							<option value="/zh-hans/" selected={lang === 'zh-hans'}>简体中文</option>
 							<option value="/zh-hant/" selected={lang === 'zh-hant'}>繁體中文</option>
 						</select>
 					</div>
-					<a href="mailto:support@7caifei.com">{t('nav.support')}</a>
+					<a href="mailto:aion@7caifei.com">{t('nav.support')}</a>
 				</nav>
 			</div>
 		</header>
@@ -50,13 +51,42 @@ const { title, description = t('hero.subtitle') } = Astro.props;
 			<div class="container">
 				<div class="footer-content">
 					<div>
-						<p>&copy; 2026 ProcessZero Team. {t('footer.rights')}</p>
-						<p style="margin-top: 8px;">Aion: Zero Friction, Zero Distraction.</p>
+						<div class="logo" style="margin-bottom: 20px; font-size: 1.2rem;">
+							<img src="/apple-touch-icon.png" alt="Aion Logo" style="width: 30px; height: 30px;" />
+							<span>Aion</span>
+						</div>
+						<p>Zero Friction, Zero Distraction.</p>
+						<p style="margin-top: 8px;">{t('hero.subtitle')}</p>
 					</div>
 					<div class="footer-links">
-						<a href="/privacy">{t('footer.privacy')}</a>
-						<a href="/terms">{t('footer.terms')}</a>
-						<a href="mailto:support@7caifei.com">{t('footer.contact')}</a>
+						<div style="display: flex; flex-direction: column; gap: 12px;">
+							<h4 style="color: #fff;">{t('nav.features')}</h4>
+							<a href="#features" style="color: var(--text-secondary);">{t('features.autoquit.title')}</a>
+							<a href="#features" style="color: var(--text-secondary);">{t('features.scenes.title')}</a>
+							<a href="#features" style="color: var(--text-secondary);">{t('features.smart.title')}</a>
+						</div>
+						<div style="display: flex; flex-direction: column; gap: 12px;">
+							<h4 style="color: #fff;">Legal</h4>
+							<a href={lang === 'en' ? '/privacy' : `/${lang}/privacy`} style="color: var(--text-secondary);">{t('footer.privacy')}</a>
+							<a href={lang === 'en' ? '/terms' : `/${lang}/terms`} style="color: var(--text-secondary);">{t('footer.terms')}</a>
+						</div>
+						<div style="display: flex; flex-direction: column; gap: 12px;">
+							<h4 style="color: #fff;">Contact</h4>
+							<a href="mailto:aion@7caifei.com" style="color: var(--text-secondary);">{t('footer.contact')}</a>
+						</div>
+					</div>
+				</div>
+				<div class="footer-nav">
+					<p>&copy; 2026 ProcessZero Team. {t('footer.rights')}</p>
+					<div class="footer-lang">
+						<div class="lang-selector-wrapper">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+							<select onchange="window.location.href = this.value">
+								<option value="/" selected={lang === 'en'}>English</option>
+								<option value="/zh-hans/" selected={lang === 'zh-hans'}>简体中文</option>
+								<option value="/zh-hant/" selected={lang === 'zh-hant'}>繁體中文</option>
+							</select>
+						</div>
 					</div>
 				</div>
 			</div>
