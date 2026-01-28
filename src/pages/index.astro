@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Focus on What Matters">
+	<main>
+		<section class="hero container">
+			<h1>Zero Friction, Zero Distraction</h1>
+			<p>Aion intelligently manages your macOS workspace by automatically quitting inactive apps. Save memory, boost performance, and reclaim your focus.</p>
+			<div style="display: flex; gap: 1rem; justify-content: center;">
+				<a href="https://github.com/monkey-sking/ProcessZero/releases/latest/download/Aion.dmg" class="btn btn-primary">Download for Mac</a>
+				<a href="#features" class="btn" style="border: 1px solid var(--border);">Learn More</a>
+			</div>
+			
+			<div style="margin-top: 60px; position: relative; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 40px 100px rgba(0,0,0,0.5);">
+				<div style="background: var(--bg-secondary); padding: 40px; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center;">
+					<div style="text-align: center;">
+						<div style="font-size: 5rem; margin-bottom: 1rem;">🚀</div>
+						<p style="color: var(--text-secondary);">Application Preview / Screenshot Space</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="features" class="container" style="padding: 100px 0;">
+			<h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 4rem;">Powerful Efficiency</h2>
+			<div class="features">
+				<div class="feature-card">
+					<div style="font-size: 2rem; margin-bottom: 1rem;">⏲️</div>
+					<h3>Auto-Quit</h3>
+					<p>Automatically closes applications after a period of inactivity. Customize idle thresholds for each app.</p>
+				</div>
+				<div class="feature-card">
+					<div style="font-size: 2rem; margin-bottom: 1rem;">🎭</div>
+					<h3>Scene Modes</h3>
+					<p>Switch between 'Work', 'Gaming', or 'Entertainment' scenes. Aion adapts your workspace instantly.</p>
+				</div>
+				<div class="feature-card">
+					<div style="font-size: 2rem; margin-bottom: 1rem;">🛡️</div>
+					<h3>Smart Guard</h3>
+					<p>Aion never quits important system processes or apps playing media, ensuring seamless transitions.</p>
+				</div>
+				<div class="feature-card">
+					<div style="font-size: 2rem; margin-bottom: 1rem;">📊</div>
+					<h3>Resource Insights</h3>
+					<p>Monitor CPU and Memory usage in real-time right from your menu bar. Identify resource hogs instantly.</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="pricing" class="container" style="padding: 100px 0; text-align: center;">
+			<h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Simple Pricing</h2>
+			<p style="color: var(--text-secondary); margin-bottom: 4rem;">Buy once, own forever. No subscriptions.</p>
+			
+			<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 800px; margin: 0 auto;">
+				<div class="feature-card" style="display: flex; flex-direction: column; align-items: center;">
+					<h3 style="margin-bottom: 0.5rem;">Free</h3>
+					<div style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem;">$0</div>
+					<ul style="list-style: none; text-align: left; margin-bottom: 2rem; color: var(--text-secondary); width: 100%;">
+						<li style="margin-bottom: 0.8rem;">✓ Basic Auto-Quit</li>
+						<li style="margin-bottom: 0.8rem;">✓ Standard Whitelist</li>
+						<li style="margin-bottom: 0.8rem;">✓ Menu Bar Statistics</li>
+						<li style="margin-bottom: 0.8rem; color: #444;">✗ Advanced Scenes</li>
+						<li style="margin-bottom: 0.8rem; color: #444;">✗ Priority Support</li>
+					</ul>
+					<a href="https://github.com/monkey-sking/ProcessZero/releases/latest/download/Aion.dmg" class="btn" style="border: 1px solid var(--border); width: 100%;">Download</a>
+				</div>
+				
+				<div class="feature-card" style="display: flex; flex-direction: column; align-items: center; border-color: var(--primary); transform: scale(1.05); position: relative;">
+					<div style="position: absolute; top: -15px; background: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">PRO (ONE-TIME)</div>
+					<h3 style="margin-bottom: 0.5rem;">Pro</h3>
+					<div style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem;">$9.99</div>
+					<ul style="list-style: none; text-align: left; margin-bottom: 2rem; color: var(--text-secondary); width: 100%;">
+						<li style="margin-bottom: 0.8rem;">✓ Everything in Free</li>
+						<li style="margin-bottom: 0.8rem;">✓ Unlimited Custom Scenes</li>
+						<li style="margin-bottom: 0.8rem;">✓ Advanced Transition Rules</li>
+						<li style="margin-bottom: 0.8rem;">✓ Priority 1:1 Support</li>
+						<li style="margin-bottom: 0.8rem;">✓ Lifetime Updates</li>
+					</ul>
+					<button disabled class="btn btn-primary" style="width: 100%;">Coming Soon</button>
+				</div>
+			</div>
+		</section>
+		
+		<section class="container" style="padding: 100px 0; text-align: center; border-top: 1px solid var(--border);">
+			<h2 style="margin-bottom: 1.5rem;">Ready to reclaim your focus?</h2>
+			<a href="https://github.com/monkey-sking/ProcessZero/releases/latest/download/Aion.dmg" class="btn btn-primary">Free Download for macOS</a>
+		</section>
+	</main>
+</BaseLayout>

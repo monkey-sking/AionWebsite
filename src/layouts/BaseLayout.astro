@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Aion - Zero Friction, Zero Distraction. The ultimate productivity utility for macOS." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} | Aion</title>
+	</head>
+	<body>
+		<header>
+			<div class="container" style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
+				<a href="/" class="logo">
+					<img src="/apple-touch-icon.png" alt="Aion Logo" onerror="this.src='/favicon.svg'" />
+					<span>Aion</span>
+				</a>
+				<nav>
+					<a href="/#features">Features</a>
+					<a href="/#pricing">Pricing</a>
+					<a href="mailto:support@7caifei.com">Support</a>
+				</nav>
+			</div>
+		</header>
+		
+		<slot />
+
+		<footer>
+			<div class="container">
+				<div class="footer-content">
+					<div>
+						<p>&copy; 2026 ProcessZero Team. All rights reserved.</p>
+						<p style="margin-top: 8px;">Aion: Zero Friction, Zero Distraction.</p>
+					</div>
+					<div class="footer-links">
+						<a href="/privacy">Privacy Policy</a>
+						<a href="/terms">Terms of Service</a>
+						<a href="mailto:support@7caifei.com">Contact Us</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
