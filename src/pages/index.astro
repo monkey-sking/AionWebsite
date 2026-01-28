@@ -73,7 +73,10 @@ const t = useTranslations(lang);
 				<div class="feature-card" style="display: flex; flex-direction: column; align-items: center; border-color: var(--primary); transform: scale(1.05); position: relative;">
 					<div style="position: absolute; top: -15px; background: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">{t('pricing.pro.badge')}</div>
 					<h3 style="margin-bottom: 0.5rem;">{t('pricing.pro.title')}</h3>
-					<div style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem;">$9.99</div>
+					<div style="display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 1.5rem;">
+						<span style="font-size: 2.5rem; font-weight: 800;">{t('pricing.pro.price')}</span>
+						<span style="font-size: 1.2rem; text-decoration: line-through; color: var(--text-secondary);">{t('pricing.pro.original')}</span>
+					</div>
 					<ul style="list-style: none; text-align: left; margin-bottom: 2rem; color: var(--text-secondary); width: 100%;">
 						<li style="margin-bottom: 0.8rem;">✓ Everything in Free</li>
 						<li style="margin-bottom: 0.8rem;">✓ Unlimited Custom Scenes</li>
