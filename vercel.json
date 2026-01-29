@@ -2,8 +2,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "routes": [
-    { "handle": "filesystem" },
     { "src": "/download/Aion.dmg", "status": 404, "dest": "/404.html" },
-    { "src": "/(.*)", "status": 404, "dest": "/404.html" }
+    { "handle": "filesystem" }
   ]
 }
