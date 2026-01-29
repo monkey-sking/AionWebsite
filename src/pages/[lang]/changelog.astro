@@ -38,33 +38,33 @@ const description = lang === 'zh-hans' ? 'Aion 灵汐的版本更新历史记录
           </div>
 
           <div class="release-content">
-            {item.new && item.new.length > 0 && (
+            {item.new && (item.new[lang] || item.new['en']) && (
               <div class="change-group">
                 <h3 class="group-title new">{lang === 'zh-hans' ? '新增' : 'New'}</h3>
                 <ul>
-                  {item.new.map((line) => (
+                  {(item.new[lang] || item.new['en']).map((line) => (
                     <li>{line}</li>
                   ))}
                 </ul>
               </div>
             )}
 
-            {item.improved && item.improved.length > 0 && (
+            {item.improved && (item.improved[lang] || item.improved['en']) && (
               <div class="change-group">
                 <h3 class="group-title improved">{lang === 'zh-hans' ? '改进' : 'Improved'}</h3>
                 <ul>
-                  {item.improved.map((line) => (
+                  {(item.improved[lang] || item.improved['en']).map((line) => (
                     <li>{line}</li>
                   ))}
                 </ul>
               </div>
             )}
 
-            {item.fixed && item.fixed.length > 0 && (
+            {item.fixed && (item.fixed[lang] || item.fixed['en']) && (
               <div class="change-group">
                 <h3 class="group-title fixed">{lang === 'zh-hans' ? '修复' : 'Fixed'}</h3>
                 <ul>
-                  {item.fixed.map((line) => (
+                  {(item.fixed[lang] || item.fixed['en']).map((line) => (
                     <li>{line}</li>
                   ))}
                 </ul>
