@@ -1,9 +1,9 @@
 export interface ChangelogItem {
   version: string;
   date: string;
-  new?: Record<string, string[]>;
-  improved?: Record<string, string[]>;
-  fixed?: Record<string, string[]>;
+  new: Record<string, string[]>;
+  improved: Record<string, string[]>;
+  fixed: Record<string, string[]>;
 }
 
 export const changelogData: ChangelogItem[] = [
@@ -33,68 +33,88 @@ export const changelogData: ChangelogItem[] = [
         '性能优化：内存占用降低 60%，启动速度提升 2 倍。',
         '智能守卫：增强了音频和下载检测的精确度。',
       ]
-    }
+    },
+    fixed: { en: [], 'zh-hans': [] }
   },
   {
+    // Commit: feat: Implement Pro features, license management, and new SmartGuards audio detection capabilities.
+    // Date: 2026-01-27
     version: 'v1.9.5',
-    date: '2026-01-15',
+    date: '2026-01-27',
     new: {
       en: [
-        'Helper Tool: Added privileged helper for "Force Quit" capabilities.',
-        'System Cleanup: Deep maintenance mode to remove zombie processes.',
+        'Advanced Media Detection: Implemented multi-signal detection (MediaRemote + Audio Hardware) for precise playback status.',
+        'Pro Features: Added License Management and exclusive Pro capabilities.',
+        'Focus Mode Integration: Added AppIntents for system-level Focus Mode synchronization.',
       ],
       'zh-hans': [
-        '特权助手：新增 Helper Tool 以支持“强制退出”功能。',
-        '系统清理：新增深度维护模式，可清理僵尸进程。',
+        '高级媒体检测：实施多信号检测（MediaRemote + 音频硬件）以精确获取播放状态。',
+        'Pro 功能：新增许可证管理和独家 Pro 功能。',
+        '专注模式集成：添加 AppIntents 以支持系统级专注模式同步。',
       ]
     },
     improved: {
       en: [
-        'Settings: Reorganized preferences into clear categories.',
-        'Onboarding: New welcome flow with permission guidance.',
+        'Icon Library: Expanded to 120+ top SF Symbols for scene customization.',
+        'Onboarding: Polished welcome experience with refined copy and transitions.',
       ],
       'zh-hans': [
-        '设置重组：将首选项重新组织为清晰的分类。',
-        '引导流程：全新的欢迎引导，包含权限设置指引。',
-      ]
-    }
-  },
-  {
-    version: 'v1.9.0',
-    date: '2025-12-20',
-    new: {
-      en: [
-        'Smart Guard Engine: First introduction of intelligent activity detection.',
-        'Resource Monitor: Added real-time CPU and RAM stats to the menu bar.',
-      ],
-      'zh-hans': [
-        '智能守卫引擎：首次引入智能活动检测。',
-        '资源监控：在菜单栏新增实时 CPU 和内存统计。',
+        '图标库：扩展至 120+ 顶级 SF Symbols 图标，用于场景自定义。',
+        '引导流程：优化的欢迎体验，包含精炼的文案和过渡动画。',
       ]
     },
     fixed: {
       en: [
-        'Fixed an issue where "Do Not Disturb" mode was not detected correctly.',
-        'Resolved a crash when switching users constantly.',
+        'Resolved robust ProcessMonitor refresh and fallback logic.',
+        'Fixed empty menu bar app list issues.',
       ],
       'zh-hans': [
-        '修复了“勿扰模式”检测不正确的问题。',
-        '解决了频繁切换用户时的崩溃问题。',
+        '解决了 ProcessMonitor 刷新和回退逻辑的健壮性问题。',
+        '修复了菜单栏应用列表为空的问题。',
       ]
     }
   },
   {
-    version: 'v1.0.0',
-    date: '2025-10-01',
+    // Commit: feat: support dynamic scroll speed based on content length
+    // Date: 2026-01-24 (Estimated from surrounding logic in git log)
+    version: 'v1.9.0',
+    date: '2026-01-25',
     new: {
       en: [
-        'Initial Release: The foundation of the auto-quit engine.',
-        'Basic Whitelist & Blacklist management.',
+        'Scrolling App Names: Added marquee effect for long application names in the menu bar.',
+        'Checklist Manager: Introduced internal tool for tracking launch readiness.',
       ],
       'zh-hans': [
-        '初始发布：自动退出引擎的基础版本。',
-        '基础的白名单与黑名单管理。',
+        '滚动应用名称：为菜单栏中的长应用名称添加了跑马灯效果。',
+        '清单管理器：引入用于跟踪发布准备状态的内部工具。',
       ]
-    }
+    },
+    improved: {
+      // Commit: refactor: move SystemObserver to AionCore
+      en: [
+        'Architecture: Moved SystemObserver to AionCore for better modularity.',
+      ],
+      'zh-hans': [
+        '架构：将 SystemObserver 迁移至 AionCore 以获得更好的模块化支持。',
+      ]
+    },
+    fixed: { en: [], 'zh-hans': [] }
+  },
+  {
+    // Commit: feat: implement Scene Strategy
+    version: 'v1.8.0',
+    date: '2026-01-20', 
+    new: {
+      en: [
+        'Scene Strategy: Introduced configurable scenes (Whitelist/Blacklist logic) for different workflows.',
+      ],
+      'zh-hans': [
+        '场景策略：引入可配置的场景（白名单/黑名单逻辑）以适应不同的工作流。',
+      ]
+    },
+    improved: {
+      en: [], 'zh-hans': []
+    },
+    fixed: { en: [], 'zh-hans': [] }
   }
 ];
