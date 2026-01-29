@@ -1,34 +1,31 @@
-from PIL import Image, ImageDraw
+import PIL.Image as Image
+import PIL.ImageDraw as ImageDraw
+import os
 
 def create_squircle_mask(size, radius):
     mask = Image.new('L', size, 0)
     draw = ImageDraw.Draw(mask)
-    # Drawing a rounded rectangle to simulate squircle
     draw.rounded_rectangle((0, 0) + size, radius=radius, fill=255)
     return mask
 
 def process_logo(input_path, output_path):
-    # Load original logo
+    if not os.path.exists(input_path):
+        print(f"Error: {input_path} not found")
+        return
+
     img = Image.open(input_path).convert("RGBA")
-    width, height = img.size
+    size = img.size
     
-    # Define a slightly smaller crop to remove the 1px border and white artifacts
-    # Logo is 1024x1024, we crop 4px from each side to be safe
-    offset = 8 
-    cropped_img = img.crop((offset, offset, width - offset, height - offset))
-    new_size = cropped_img.size
+    # Apple squircle radius is roughly 22.5% of the size
+    radius = size[0] * 0.225
     
-    # Create mask for transparency (approx 22% corner radius for Apple style)
-    radius = int(new_size[0] * 0.22)
-    mask = create_squircle_mask(new_size, radius)
+    mask = create_squircle_mask(size, radius)
     
-    # Apply mask
-    final_img = Image.new("RGBA", new_size, (0, 0, 0, 0))
-    final_img.paste(cropped_img, (0, 0), mask)
+    output = Image.new('RGBA', size, (0, 0, 0, 0))
+    output.paste(img, (0, 0), mask)
     
-    # Save as PNG
-    final_img.save(output_path, "PNG")
-    print(f"Processed logo saved to {output_path}")
+    output.save(output_path, "PNG")
+    print(f"Successfully processed {input_path} -> {output_path}")
 
 if __name__ == "__main__":
     process_logo("public/apple-touch-icon.png", "public/logo-clean.png")
