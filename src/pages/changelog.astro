@@ -1,0 +1,249 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { ui } from '../i18n/ui';
+import { changelogData } from '../data/changelog';
+
+const lang = 'en';
+
+// Helper to get translations
+function t(key: string) {
+  return ui['en'][key];
+}
+
+const pageTitle = 'Release Notes';
+const description = 'Version history and release notes for Aion.';
+---
+
+<BaseLayout title={`${pageTitle} | Aion`} description={description} lang={lang}>
+  <div class="changelog-container">
+    <div class="header-section">
+      <h1>{pageTitle}</h1>
+      <p class="subtitle">The evolution of Aion</p>
+    </div>
+
+    <div class="timeline">
+      {changelogData.map((item, index) => (
+        <div class="release-entry">
+          <div class="release-header">
+            <div class="version-group">
+              <h2 class="version">{item.version}</h2>
+              {index === 0 && <span class="badge-latest">Latest</span>}
+            </div>
+            <span class="date">{item.date}</span>
+          </div>
+
+          <div class="release-content">
+            {item.new && item.new.length > 0 && (
+              <div class="change-group">
+                <h3 class="group-title new">New</h3>
+                <ul>
+                  {item.new.map((line) => (
+                    <li>{line}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {item.improved && item.improved.length > 0 && (
+              <div class="change-group">
+                <h3 class="group-title improved">Improved</h3>
+                <ul>
+                  {item.improved.map((line) => (
+                    <li>{line}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {item.fixed && item.fixed.length > 0 && (
+              <div class="change-group">
+                <h3 class="group-title fixed">Fixed</h3>
+                <ul>
+                  {item.fixed.map((line) => (
+                    <li>{line}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .changelog-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 8rem 2rem 4rem;
+  }
+
+  .header-section {
+    margin-bottom: 4rem;
+    text-align: left;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .timeline {
+    position: relative;
+    border-left: 1px solid var(--border);
+    padding-left: 2rem;
+  }
+
+  .release-entry {
+    margin-bottom: 4rem;
+    position: relative;
+  }
+
+  /* Timeline dot */
+  .release-entry::before {
+    content: '';
+    position: absolute;
+    left: -2.35rem;
+    top: 0.5rem;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: var(--border);
+    border: 2px solid var(--bg);
+  }
+
+  .release-entry:first-child::before {
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary-glow);
+  }
+
+  .release-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+  }
+
+  .version-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .version {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    font-family: var(--font-mono);
+    color: var(--text-main);
+  }
+
+  .badge-latest {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 2px 8px var(--primary-glow);
+  }
+
+  .date {
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .change-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .group-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+  }
+
+  .group-title.new {
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+  }
+
+  .group-title.improved {
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+  }
+
+  .group-title.fixed {
+    color: #6b7280;
+    background: rgba(107, 114, 128, 0.1);
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    position: relative;
+    padding-left: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  li::before {
+    content: '-';
+    position: absolute;
+    left: 0;
+    color: var(--text-muted);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .changelog-container {
+      padding: 6rem 1.5rem 2rem;
+    }
+    
+    .header-section {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    .timeline {
+      padding-left: 1rem;
+      border-left: none; /* Remove timeline line on mobile if distinct enough */
+    }
+    
+    .release-entry::before {
+      display: none; /* Hide dots on mobile to save space */
+    }
+    
+    .release-header {
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+  }
+</style>
