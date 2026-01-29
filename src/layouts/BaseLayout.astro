@@ -23,6 +23,31 @@ import { languages } from '../i18n/ui';
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title} | {t('site.name')}</title>
+
+		<script is:inline>
+			(function() {
+				const supportedLangs = ['zh-hans', 'zh-hant', 'ja', 'ko', 'de', 'fr', 'es', 'pt', 'ru', 'it'];
+				const currentPath = window.location.pathname;
+				
+				// Only auto-redirect if at the root and no manual preference exists
+				if ((currentPath === '/' || currentPath === '/index.html') && !localStorage.getItem('manual-lang')) {
+					const browserLang = navigator.language.toLowerCase();
+					let targetLang = null;
+
+					if (browserLang.startsWith('zh-cn') || browserLang.startsWith('zh-sg') || browserLang === 'zh') {
+						targetLang = 'zh-hans';
+					} else if (browserLang.startsWith('zh-tw') || browserLang.startsWith('zh-hk') || browserLang.startsWith('zh-mo')) {
+						targetLang = 'zh-hant';
+					} else {
+						targetLang = supportedLangs.find(lang => browserLang.startsWith(lang));
+					}
+
+					if (targetLang && targetLang !== 'en') {
+						window.location.href = `/${targetLang}/`;
+					}
+				}
+			})();
+		</script>
 	</head>
 	<body>
 		<header>
@@ -37,7 +62,7 @@ import { languages } from '../i18n/ui';
 					<a href="mailto:aion@7caifei.com">{t('nav.support')}</a>
 					<div class="lang-selector-wrapper">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-						<select onchange="window.location.href = this.value">
+						<select onchange="localStorage.setItem('manual-lang', 'true'); window.location.href = this.value">
 							{Object.entries(languages).map(([code, label]) => (
 								<option value={code === 'en' ? '/' : `/${code}/`} selected={lang === code}>
 									{label}
@@ -85,7 +110,7 @@ import { languages } from '../i18n/ui';
 					<div class="footer-lang">
 						<div class="lang-selector-wrapper">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-							<select onchange="window.location.href = this.value">
+							<select onchange="localStorage.setItem('manual-lang', 'true'); window.location.href = this.value">
 								{Object.entries(languages).map(([code, label]) => (
 									<option value={code === 'en' ? '/' : `/${code}/`} selected={lang === code}>
 										{label}
