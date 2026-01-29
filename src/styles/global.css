@@ -248,3 +248,16 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+.carousel-container {
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+  margin-top: 60px;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+.carousel-track {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
