@@ -8,5 +8,8 @@ export default defineConfig({
     routing: {
       prefixDefaultLocale: false
     }
+  },
+  redirects: {
+    '/download/Aion.dmg': 'https://github.com/monkey-sking/ProcessZero/releases/latest/download/Aion.dmg'
   }
 });
