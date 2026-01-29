@@ -486,7 +486,6 @@ export const ui = {
     'features.focus.desc': 'Vincula escenas con modos de Enfoque y Atajos de macOS.',
     'features.privacy.title': 'Privacidad primero',
     'features.privacy.desc': 'Sin rastreo. Sin recolección de datos. Todo se ejecuta localmente.',
-    'pricing.title': 'Elija su plan',
     'footer.terms': 'Términos',
     'footer.contact': 'Contacto',
     'footer.rights': 'Todos los derechos reservados.',
