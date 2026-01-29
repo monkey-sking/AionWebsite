@@ -249,26 +249,21 @@ footer {
   
   header .container {
     padding: 0 1rem;
+    justify-content: space-between;
   }
 
   nav {
-    gap: 1rem;
+    gap: 0.8rem;
   }
 
-  nav a {
-    font-size: 0.9rem;
-  }
-
-  /* Simplify nav for very small screens */
+  /* Keep only Support and Lang on small screens */
   @media (max-width: 480px) {
-    nav {
-      gap: 0.8rem;
-    }
-    nav a:not(:last-child) {
-      display: none; /* Hide most nav links on phones, keep support/lang */
+    nav a:nth-child(1),
+    nav a:nth-child(2) {
+      display: none;
     }
     .logo span {
-      display: none; /* Hide app name next to logo if too tight */
+      display: none;
     }
   }
 
@@ -283,6 +278,16 @@ footer {
   .feature-card {
     padding: 1.5rem;
   }
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  position: relative;
+}
+
+* {
+  max-width: 100%;
 }
 
 .carousel-container {
