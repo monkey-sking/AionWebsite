@@ -30,22 +30,30 @@ const t = useTranslations(lang);
 			<h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 4rem;">{t('features.title')}</h2>
 			<div class="features">
 				<div class="feature-card">
-					<div style="font-size: 2rem; margin-bottom: 1rem;">⏲️</div>
+					<div style="font-size: 2rem; margin-bottom: 1rem; color: var(--primary);">
+						<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+					</div>
 					<h3>{t('features.autoquit.title')}</h3>
 					<p>{t('features.autoquit.desc')}</p>
 				</div>
 				<div class="feature-card">
-					<div style="font-size: 2rem; margin-bottom: 1rem;">🎭</div>
+					<div style="font-size: 2rem; margin-bottom: 1rem; color: var(--primary);">
+						<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+					</div>
 					<h3>{t('features.scenes.title')}</h3>
 					<p>{t('features.scenes.desc')}</p>
 				</div>
 				<div class="feature-card">
-					<div style="font-size: 2rem; margin-bottom: 1rem;">🛡️</div>
+					<div style="font-size: 2rem; margin-bottom: 1rem; color: var(--primary);">
+						<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+					</div>
 					<h3>{t('features.smart.title')}</h3>
 					<p>{t('features.smart.desc')}</p>
 				</div>
 				<div class="feature-card">
-					<div style="font-size: 2rem; margin-bottom: 1rem;">📊</div>
+					<div style="font-size: 2rem; margin-bottom: 1rem; color: var(--primary);">
+						<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+					</div>
 					<h3>{t('features.stats.title')}</h3>
 					<p>{t('features.stats.desc')}</p>
 				</div>
@@ -58,33 +66,32 @@ const t = useTranslations(lang);
 			
 			<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 800px; margin: 0 auto;">
 				<div class="feature-card" style="display: flex; flex-direction: column; align-items: center;">
-					<h3 style="margin-bottom: 0.5rem;">{t('pricing.free.title')}</h3>
+					<h3 style="margin-bottom: 0.5rem;">{t('pricing.lite')}</h3>
 					<div style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem;">$0</div>
 					<ul style="list-style: none; text-align: left; margin-bottom: 2rem; color: var(--text-secondary); width: 100%;">
-						<li style="margin-bottom: 0.8rem;">✓ Basic Auto-Quit</li>
-						<li style="margin-bottom: 0.8rem;">✓ Standard Whitelist</li>
-						<li style="margin-bottom: 0.8rem;">✓ Menu Bar Statistics</li>
-						<li style="margin-bottom: 0.8rem; color: #444;">✗ Advanced Scenes</li>
-						<li style="margin-bottom: 0.8rem; color: #444;">✗ Priority Support</li>
+						<li style="margin-bottom: 0.8rem;">✓ {t('pricing.feature.autoquit')}</li>
+						<li style="margin-bottom: 0.8rem;">✓ {t('pricing.feature.whitelist')}</li>
+						<li style="margin-bottom: 0.8rem;">✓ {t('pricing.feature.stats')}</li>
+						<li style="margin-bottom: 0.8rem; opacity: 0.5;">✗ {t('pricing.feature.scenes')}</li>
+						<li style="margin-bottom: 0.8rem; opacity: 0.5;">✗ {t('pricing.feature.support')}</li>
 					</ul>
-					<a href="https://github.com/monkey-sking/ProcessZero/releases/latest/download/Aion.dmg" class="btn" style="border: 1px solid var(--border); width: 100%;">{t('pricing.download')}</a>
+					<a href="https://github.com/monkey-sking/ProcessZero/releases/latest/download/Aion.dmg" class="btn" style="border: 1px solid var(--border); width: 100%;">{t('hero.download')}</a>
 				</div>
 				
 				<div class="feature-card" style="display: flex; flex-direction: column; align-items: center; border-color: var(--primary); transform: scale(1.05); position: relative;">
-					<div style="position: absolute; top: -15px; background: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">{t('pricing.pro.badge')}</div>
-					<h3 style="margin-bottom: 0.5rem;">{t('pricing.pro.title')}</h3>
+					<div style="position: absolute; top: -15px; background: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">{t('pricing.best')}</div>
+					<h3 style="margin-bottom: 0.5rem;">{t('pricing.pro')}</h3>
 					<div style="display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 1.5rem;">
-						<span style="font-size: 2.5rem; font-weight: 800;">{t('pricing.pro.price')}</span>
-						<span style="font-size: 1.2rem; text-decoration: line-through; color: var(--text-secondary);">{t('pricing.pro.original')}</span>
+						<span style="font-size: 2.5rem; font-weight: 800;">$9.99</span>
 					</div>
 					<ul style="list-style: none; text-align: left; margin-bottom: 2rem; color: var(--text-secondary); width: 100%;">
-						<li style="margin-bottom: 0.8rem;">✓ Everything in Free</li>
-						<li style="margin-bottom: 0.8rem;">✓ Unlimited Custom Scenes</li>
-						<li style="margin-bottom: 0.8rem;">✓ Advanced Transition Rules</li>
-						<li style="margin-bottom: 0.8rem;">✓ Priority 1:1 Support</li>
-						<li style="margin-bottom: 0.8rem;">✓ Lifetime Updates</li>
+						<li style="margin-bottom: 0.8rem;">✓ {t('pricing.feature.free_base')}</li>
+						<li style="margin-bottom: 0.8rem;">✓ {t('pricing.feature.scenes')}</li>
+						<li style="margin-bottom: 0.8rem;">✓ {t('pricing.feature.rules')}</li>
+						<li style="margin-bottom: 0.8rem;">✓ {t('pricing.feature.support')}</li>
+						<li style="margin-bottom: 0.8rem;">✓ {t('pricing.feature.updates')}</li>
 					</ul>
-					<button disabled class="btn btn-primary" style="width: 100%;">{t('pricing.coming')}</button>
+					<a href="https://aion.7caifei.com/buy" class="btn btn-primary" style="width: 100%;">{t('pricing.buy')}</a>
 				</div>
 			</div>
 		</section>

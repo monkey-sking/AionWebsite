@@ -10,6 +10,7 @@ interface Props {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const { title, description = t('hero.subtitle') } = Astro.props;
+import { languages } from '../i18n/ui';
 ---
 
 <!doctype html>
@@ -18,16 +19,17 @@ const { title, description = t('hero.subtitle') } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title} | Aion</title>
+		<title>{title} | {t('site.name')}</title>
 	</head>
 	<body>
 		<header>
 			<div class="container" style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
 				<a href={lang === 'en' ? '/' : `/${lang}/`} class="logo">
 					<img src="/apple-touch-icon.png" alt="Aion Logo" onerror="this.src='/favicon.svg'" />
-					<span>Aion</span>
+					<span>{t('site.name')}</span>
 				</a>
 				<nav>
 					<a href="#features">{t('nav.features')}</a>
@@ -36,9 +38,11 @@ const { title, description = t('hero.subtitle') } = Astro.props;
 					<div class="lang-selector-wrapper">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
 						<select onchange="window.location.href = this.value">
-							<option value="/" selected={lang === 'en'}>English</option>
-							<option value="/zh-hans/" selected={lang === 'zh-hans'}>简体中文</option>
-							<option value="/zh-hant/" selected={lang === 'zh-hant'}>繁體中文</option>
+							{Object.entries(languages).map(([code, label]) => (
+								<option value={code === 'en' ? '/' : `/${code}/`} selected={lang === code}>
+									{label}
+								</option>
+							))}
 						</select>
 					</div>
 				</nav>
@@ -53,7 +57,7 @@ const { title, description = t('hero.subtitle') } = Astro.props;
 					<div>
 						<div class="logo" style="margin-bottom: 20px; font-size: 1.2rem;">
 							<img src="/apple-touch-icon.png" alt="Aion Logo" style="width: 30px; height: 30px;" />
-							<span>Aion</span>
+							<span>{t('site.name')}</span>
 						</div>
 						<p>Zero Friction, Zero Distraction.</p>
 						<p style="margin-top: 8px;">{t('hero.subtitle')}</p>
@@ -82,9 +86,11 @@ const { title, description = t('hero.subtitle') } = Astro.props;
 						<div class="lang-selector-wrapper">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
 							<select onchange="window.location.href = this.value">
-								<option value="/" selected={lang === 'en'}>English</option>
-								<option value="/zh-hans/" selected={lang === 'zh-hans'}>简体中文</option>
-								<option value="/zh-hant/" selected={lang === 'zh-hant'}>繁體中文</option>
+								{Object.entries(languages).map(([code, label]) => (
+									<option value={code === 'en' ? '/' : `/${code}/`} selected={lang === code}>
+										{label}
+									</option>
+								))}
 							</select>
 						</div>
 					</div>
@@ -95,7 +101,7 @@ const { title, description = t('hero.subtitle') } = Astro.props;
 </html>
 
 <style>
-	.lang-selector select:hover {
+	.lang-selector-wrapper select:hover {
 		color: var(--text);
 		border-color: var(--text-secondary);
 	}
