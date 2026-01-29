@@ -54,13 +54,13 @@ import { languages } from '../i18n/ui';
 		<footer>
 			<div class="container">
 				<div class="footer-content">
-					<div>
+					<div style="max-width: 400px; flex: 1;">
 						<div class="logo" style="margin-bottom: 20px; font-size: 1.2rem;">
 							<img src="/logo-clean.png" alt="Aion Logo" style="width: 30px; height: 30px;" />
 							<span>{t('site.name')}</span>
 						</div>
-						<p>Zero Friction, Zero Distraction.</p>
-						<p style="margin-top: 8px;">{t('hero.subtitle')}</p>
+						<p style="color: #fff; font-weight: 600;">Zero Friction, Zero Distraction.</p>
+						<p style="margin-top: 8px; font-size: 0.9rem; line-height: 1.6;">{t('hero.subtitle')}</p>
 					</div>
 					<div class="footer-links">
 						<div style="display: flex; flex-direction: column; gap: 12px;">
@@ -108,5 +108,22 @@ import { languages } from '../i18n/ui';
 	
 	.logo img {
 		border-radius: 22.37%; /* Standard macOS icon curvature */
+	}
+
+	.footer-links {
+		display: flex;
+		gap: 3rem;
+		flex-shrink: 0;
+	}
+
+	.footer-links > div {
+		min-width: 120px;
+	}
+
+	@media (max-width: 768px) {
+		.footer-links {
+			gap: 1.5rem;
+			flex-wrap: wrap;
+		}
 	}
 </style>
