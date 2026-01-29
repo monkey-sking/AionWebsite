@@ -48,7 +48,52 @@ const t = useTranslations(lang);
 						width: 24px !important;
 						border-radius: 4px !important;
 					}
-				</style>
+				
+	.faq-item {
+		margin-bottom: 1rem;
+		background: rgba(255, 255, 255, 0.03);
+		border-radius: 12px;
+		border: 1px solid var(--border);
+		transition: all 0.3s ease;
+	}
+
+	.faq-item:hover {
+		border-color: rgba(255, 255, 255, 0.2);
+		background: rgba(255, 255, 255, 0.05);
+	}
+
+	.faq-item summary {
+		padding: 1.5rem;
+		cursor: pointer;
+		list-style: none;
+		font-weight: 600;
+		font-size: 1.1rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		outline: none;
+	}
+
+	.faq-item summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.faq-content {
+		padding: 0 1.5rem 1.5rem;
+		color: var(--text-secondary);
+		line-height: 1.6;
+		font-size: 1rem;
+	}
+
+	.faq-item[open] .chevron {
+		transform: rotate(180deg);
+	}
+
+	.chevron {
+		transition: transform 0.3s ease;
+		color: var(--text-secondary);
+	}
+</style>
 
 				<script>
 					const track = document.getElementById('carouselTrack');
@@ -170,6 +215,23 @@ const t = useTranslations(lang);
 			</div>
 		</section>
 		
+		<section id="faq" class="container" style="padding: 100px 0; max-width: 800px; margin: 0 auto;">
+			<h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 3rem;">{t('faq.title')}</h2>
+			<div class="faq-accordion">
+				{[1, 2, 3, 4, 5, 6].map((i) => (
+					<details class="faq-item">
+						<summary>
+							{t(`faq.q${i}.q`)}
+							<svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+						</summary>
+						<div class="faq-content">
+							<p>{t(`faq.q${i}.a`)}</p>
+						</div>
+					</details>
+				))}
+			</div>
+		</section>
+
 		<section class="container" style="padding: 100px 0; text-align: center; border-top: 1px solid var(--border);">
 			<h2 style="margin-bottom: 1.5rem;">{t('cta.title')}</h2>
 			<a href="https://github.com/monkey-sking/ProcessZero/releases/latest/download/Aion.dmg" class="btn btn-primary">{t('cta.btn')}</a>
