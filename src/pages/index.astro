@@ -311,18 +311,17 @@ const t = useTranslations(lang);
 			<h2 style="font-size: 2.5rem; margin-bottom: 1rem;">{t('pricing.title')}</h2>
 			<p style="color: var(--text-secondary); margin-bottom: 4rem;">{t('pricing.subtitle')}</p>
 			
-			<div class="pricing-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 800px; margin: 0 auto;">
+			<div class="pricing-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;">
+				<!-- Lite Card -->
 				<div class="feature-card lite-card" style="display: flex; flex-direction: column; align-items: center;">
-					<h3 style="margin-bottom: 0.5rem; color: #fff;">{t('pricing.lite')}</h3>
-					<div style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem; color: #fff;">$0</div>
+					<h3 style="margin-bottom: 0.5rem; color: #fff;">{t('pricing.plan.lite')}</h3>
+					<div style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem; color: #fff;">{t('pricing.price.lite')}</div>
 					<ul style="list-style: none; text-align: left; margin-bottom: 2rem; color: var(--text-secondary); width: 100%;">
 						<li style="margin-bottom: 0.8rem;">✓ {t('pricing.feature.autoquit')}</li>
 						<li style="margin-bottom: 0.8rem;">✓ {t('pricing.feature.whitelist')}</li>
 						<li style="margin-bottom: 0.8rem;">✓ {t('pricing.feature.stats')}</li>
 						<li style="margin-bottom: 0.8rem; opacity: 0.5;">✗ {t('pricing.feature.scenes')} (2)</li>
 						<li style="margin-bottom: 0.8rem; opacity: 0.5;">✗ {t('pricing.feature.rules')} (3)</li>
-						<li style="margin-bottom: 0.8rem; opacity: 0.5;">✗ {t('pricing.feature.audio')}</li>
-						<li style="margin-bottom: 0.8rem; opacity: 0.5;">✗ {t('pricing.feature.network')}</li>
 						<li style="margin-bottom: 0.8rem; opacity: 0.5;">✗ {t('pricing.feature.instant')}</li>
 					</ul>
 					<div style="display: flex; flex-direction: column; align-items: center; gap: 0.8rem; width: 100%;">
@@ -331,25 +330,41 @@ const t = useTranslations(lang);
 					</div>
 				</div>
 				
-				<div class="feature-card pro-card" style="display: flex; flex-direction: column; align-items: center; border-color: var(--primary); position: relative;">
-					<div style="position: absolute; top: -15px; background: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">{t('pricing.best')}</div>
-					<h3 style="margin-bottom: 0.5rem; color: #fff;">{t('pricing.pro')}</h3>
-					<div style="display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 1.5rem;">
-						<span style="text-decoration: line-through; color: var(--text-secondary); font-size: 1.5rem;">$14.99</span>
-						<span style="font-size: 2.5rem; font-weight: 800; color: var(--primary);">$9.99</span>
+				<!-- Launch Special Card -->
+				<div class="feature-card pro-card" style="display: flex; flex-direction: column; align-items: center; border-color: var(--primary); position: relative; background: rgba(59, 130, 246, 0.1);">
+					<div style="position: absolute; top: -15px; background: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">{t('pricing.plan.launch')}</div>
+					<h3 style="margin-bottom: 0.5rem; color: #fff;">{t('pricing.license.1mac')}</h3>
+					<div style="display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 0.5rem;">
+						<span style="text-decoration: line-through; color: var(--text-secondary); font-size: 1.2rem;">{t('pricing.price.launch.original')}</span>
+						<span style="font-size: 2.5rem; font-weight: 800; color: var(--primary);">{t('pricing.price.launch')}</span>
 					</div>
+					<div style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;">{t('pricing.best')}</div>
+
 					<ul style="list-style: none; text-align: left; margin-bottom: 2rem; color: var(--text-secondary); width: 100%;">
 						<li style="margin-bottom: 0.8rem;">✓ {t('pricing.feature.scenes')}</li>
 						<li style="margin-bottom: 0.8rem;">✓ {t('pricing.feature.rules')}</li>
 						<li style="margin-bottom: 0.8rem;">✓ {t('pricing.feature.audio')}</li>
-						<li style="margin-bottom: 0.8rem;">✓ {t('pricing.feature.network')}</li>
 						<li style="margin-bottom: 0.8rem;">✓ {t('pricing.feature.instant')}</li>
-						<li style="margin-bottom: 0.8rem;">✓ {t('pricing.feature.force')}</li>
-						<li style="margin-bottom: 0.8rem;">✓ {t('pricing.feature.maintenance')}</li>
-						<li style="margin-bottom: 0.8rem;">✓ {t('pricing.feature.support')}</li>
 						<li style="margin-bottom: 0.8rem;">✓ {t('pricing.feature.updates')}</li>
 					</ul>
-					<a href="https://aion.7caifei.com/buy" class="btn btn-primary" style="width: 100%;">{t('pricing.buy')}</a>
+					<a href="https://mbd.pub/o/bread/aion-standard" class="btn btn-primary" style="width: 100%;">{t('pricing.buy')}</a>
+				</div>
+
+				<!-- Power Pack Card -->
+				<div class="feature-card bundle-card" style="display: flex; flex-direction: column; align-items: center; border: 1px solid rgba(255,255,255,0.2);">
+					<h3 style="margin-bottom: 0.5rem; color: #fff;">{t('pricing.plan.bundle')}</h3>
+					<div style="display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 0.5rem;">
+						<span style="font-size: 2.5rem; font-weight: 800; color: #fff;">{t('pricing.price.bundle')}</span>
+					</div>
+					<div style="color: var(--primary); margin-bottom: 1.5rem; font-weight: bold;">{t('pricing.license.3macs')}</div>
+
+					<ul style="list-style: none; text-align: left; margin-bottom: 2rem; color: var(--text-secondary); width: 100%;">
+						<li style="margin-bottom: 0.8rem;">✓ {t('pricing.feature.free_base')}</li>
+						<li style="margin-bottom: 0.8rem;">✓ {t('pricing.license.3macs')}</li>
+						<li style="margin-bottom: 0.8rem;">✓ {t('pricing.feature.updates')}</li>
+						<li style="margin-bottom: 0.8rem;">✓ {t('pricing.feature.support')}</li>
+					</ul>
+					<a href="https://mbd.pub/o/bread/aion-pro" class="btn" style="border: 1px solid var(--border); width: 100%; background: rgba(255,255,255,0.05);">{t('pricing.buy')}</a>
 				</div>
 			</div>
 		</section>
