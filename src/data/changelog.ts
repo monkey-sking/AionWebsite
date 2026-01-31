@@ -8,8 +8,38 @@ export interface ChangelogItem {
 
 export const changelogData: ChangelogItem[] = [
   {
+    version: 'v2.2.0',
+    date: '2026-01-31',
+    new: {
+      en: [
+        'iCloud Synchronization: Keep your preferences, rules, and focus modes in sync across all your Macs.',
+        'Official 11-Language Support: Full localization for English, Chinese (Simplified/Traditional), Japanese, German, French, Korean, Spanish, Portuguese, Russian, and Italian.',
+      ],
+      'zh-hans': [
+        'iCloud 云同步：在您的所有 Mac 设备之间同步偏好设置、应用规则和专注模式。',
+        '官方 11 国语言支持：完整适配英文、简繁中文、日文、德文、法文、韩文、西班牙文、葡萄牙文、俄文及意大利文。',
+      ]
+    },
+    improved: {
+      en: [
+        'Resource Loading: Optimized asset bundle structure for faster and more reliable loading of icons and translated strings.',
+      ],
+      'zh-hans': [
+        '资源加载优化：优化了资源包结构，使图标和多语言字符串的加载更快速、更可靠。',
+      ]
+    },
+    fixed: {
+      en: [
+        'Fixed an issue where some tips and focus icons were missing in certain build environments.',
+      ],
+      'zh-hans': [
+        '修复了在某些构建环境下部分提示文字和专注模式图标丢失的问题。',
+      ]
+    }
+  },
+  {
     version: 'v2.1.0',
-    date: '2026-02-05',
+    date: '2026-01-30',
     new: {
       en: [
         'Advanced Process Detection: Distinguish between different Browser Profiles (Chrome/Edge/Firefox).',
@@ -43,7 +73,7 @@ export const changelogData: ChangelogItem[] = [
   },
   {
     version: 'v2.0.0',
-    date: '2026-02-01',
+    date: '2026-01-28',
     new: {
       en: [
         'The Reborn Update: Completely redesigned for macOS 15 release.',
