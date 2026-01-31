@@ -8,6 +8,40 @@ export interface ChangelogItem {
 
 export const changelogData: ChangelogItem[] = [
   {
+    version: 'v2.1.0',
+    date: '2026-02-05',
+    new: {
+      en: [
+        'Advanced Process Detection: Distinguish between different Browser Profiles (Chrome/Edge/Firefox).',
+        'Project-Aware Automation: Recognizes identical apps handling different projects (VS Code, Xcode, Unity, Godot).',
+        'Smart Resource Aggregation: Automatically sums CPU and Memory usage for de-duplicated app instances when advanced mode is off.',
+      ],
+      'zh-hans': [
+        '高级进程检测：支持识别浏览器不同“分身” (Chrome/Edge/Firefox Profile)。',
+        '项目感知自动化：支持根据项目路径识别 IDE 实例 (VS Code, Xcode, Unity, Godot)。',
+        '智能资源聚合：当关闭高级模式进行去重时，自动累加所有实例的 CPU 和内存占用。',
+      ]
+    },
+    improved: {
+      en: [
+        'App Activation: Clicking merged app entries now activates all related instances and restores minimized windows.',
+        'Immediate Feedback: UI now instantly reflects toggle changes by clearing variant caches.',
+      ],
+      'zh-hans': [
+        '应用激活体验：点击合并项现在能同时激活所有关联实例，并自动恢复最小化窗口。',
+        '即时响应：切换功能开关后立即清空变体缓存，界面反馈更迅速。',
+      ]
+    },
+    fixed: {
+      en: [
+        'Resolved type conflicts with CoreMedia when handling process lists.',
+      ],
+      'zh-hans': [
+        '修复了处理进程列表时与 CoreMedia 的类型冲突冲突。',
+      ]
+    }
+  },
+  {
     version: 'v2.0.0',
     date: '2026-02-01',
     new: {
